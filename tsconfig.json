@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "target": "es5",
+    "lib": [
+      "es2016.array.include",
+      "es6",
+      "dom"
+    ]
+  },
+  "include": [
+      "src/**/*"
+  ]
+}

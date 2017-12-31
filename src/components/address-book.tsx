@@ -1,6 +1,6 @@
 import * as React from 'react'
-import ContactsList from './contacts-list'
-import ContactView from './contact-view'
+import ContactsList from '../containers/contacts-list'
+import ContactView from '../containers/contact-view'
 
 export interface IContact {
   name: string
@@ -9,34 +9,19 @@ export interface IContact {
 
 export interface IAddressBookProps {
   contacts: Array<IContact>
+  contact: IContact
 }
 
-interface IAddressBookState {
-  selectedContact?: IContact
-}
-
-export class AddressBook extends React.Component<IAddressBookProps, IAddressBookState> {
+export class AddressBook extends React.Component<IAddressBookProps> {
   constructor(props: IAddressBookProps) {
     super(props)
-
-    this.state ={
-      selectedContact: props.contacts[0]
-    }
-  }
-
-  selectContact(contact) {
-    console.log('selectContact called', contact)
-    console.log(this)
-    this.setState({
-      selectedContact: contact
-    })
   }
 
   render() {
     return (
       <div>
-        <ContactsList contacts={this.props.contacts} selectContactFn={this.selectContact.bind(this)} />
-        <ContactView contact={this.state.selectedContact} />
+        <ContactsList contacts={this.props.contacts} />
+        <ContactView />
       </div>
     )
   }

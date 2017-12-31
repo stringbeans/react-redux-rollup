@@ -11,8 +11,8 @@ export default class ContactView extends React.Component<IContactViewProps> {
     return (
       <div>
         <h2>Contact Details</h2>
-        <div>Name: {this.props.contact.name}</div>
-        <div>Phone {this.props.contact.phone}</div>
+        <div>Name: {this.props.contact && this.props.contact.name}</div>
+        <div>Phone {this.props.contact && this.props.contact.phone}</div>
       </div>
     )
   }

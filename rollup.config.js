@@ -25,6 +25,7 @@ const plugins = [
                 'render',
             ],
             'node_modules/react/react.js': [
+                'Children',
                 'Component',
                 'PropTypes',
                 'createElement',

@@ -1,6 +1,8 @@
 import * as React from 'react'
 import ContactsList from '../containers/contacts-list'
 import ContactView from '../containers/contact-view'
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
 
 export interface IContact {
   name: string
@@ -12,7 +14,7 @@ export interface IAddressBookProps {
   contact: IContact
 }
 
-export class AddressBook extends React.Component<IAddressBookProps> {
+class AddressBookComponent extends React.Component<IAddressBookProps> {
   constructor(props: IAddressBookProps) {
     super(props)
   }
@@ -20,9 +22,11 @@ export class AddressBook extends React.Component<IAddressBookProps> {
   render() {
     return (
       <div>
-        <ContactsList contacts={this.props.contacts} />
+        <ContactsList contacts={this.props.data.contacts} />
         <ContactView />
       </div>
     )
   }
 }
+
+export const AddressBook = graphql(gql`{ contacts {name, phone} }`)(AddressBookComponent)
